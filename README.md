@@ -19,7 +19,8 @@ The binary encoding is defined as the concatenation of:
  | 1           | message            |
  | 2           | blob               |
  | 3           | diffie-hellman key |
- | 4           | box encoding       |
+ | 4           | signature          |
+ | 5           | box encoding       |
 
 For canonical, machine-readable definitions, see `binary-field-encodings.json`
 
@@ -97,6 +98,22 @@ String encoding of a classic blob id:
  | format code   | format            | specification               |
  | ------------- | ----------------- | --------------------------- |
  | 0             | curve25519        |                             |
+
+### Signature type
+
+ | format code   | format            | specification               |
+ | ------------- | ----------------- | --------------------------- |
+ | 0             | ed25519           |                             |
+
+Example: 
+
+String encoding of a classic ed25519 signature:
+
+```
+  nkY4Wsn9feosxvX7bpLK7OxjdSrw6gSL8sun1n2TMLXKySYK9L5itVQnV2nQUctFsrUOa2istD2vDk1B0uAMBQ==.sig.ed25519
+  └─────────────────────────────────────┬────────────────────────────────────────────────┘└────┬─────┘
+                             base64 encoded signature                                        suffix
+```
 
 ### Box encoding type
 
