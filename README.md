@@ -1,5 +1,7 @@
 # SSB binary field encodings
 
+Shortname: SSB-BFE
+
 Definition of binary encodings for common types such as message ids
 and feed ids to be used in binary feed formats. This can be seen as an
 extension of the types defined in [TFK].
