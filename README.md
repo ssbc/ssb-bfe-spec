@@ -13,17 +13,21 @@ The binary encoding is defined as the concatenation of:
 
 ## Codes
 
- |  type code  | referencing        |
+ | type code   | referencing        |
  | ----------- | -------------      |
- |  0          | feed               |
- |  1          | message            |
- |  2          | blob               |
- |  3          | diffie-hellman key |
- |  4          | box encoding       |
+ | 0           | identity           |
+ | 1           | message            |
+ | 2           | blob               |
+ | 3           | diffie-hellman key |
+ | 4           | box encoding       |
 
 For canonical, machine-readable definitions, see `binary-field-encodings.json`
 
-### Feed type
+### Identity type
+
+Sometimes also know as feeds. Since this encompasses identities that
+does not create messages themselves, such as private groups or fusion
+identities we will use the name identity instead.
 
  | format code   | format            | specification               |
  | ------------- | ----------------- | --------------------------- |
