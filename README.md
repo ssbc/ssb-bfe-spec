@@ -21,6 +21,7 @@ The binary encoding is defined as the concatenation of:
  | 3           | diffie-hellman key |
  | 4           | signature          |
  | 5           | box encoding       |
+ | 6           | value types        |
 
 For canonical, machine-readable definitions, see `binary-field-encodings.json`
 
@@ -121,6 +122,15 @@ String encoding of a classic ed25519 signature:
  | ------------- | ----------------- | --------------------------- |
  | 0             | box1              |                             |
  | 1             | box2              |                             |
+
+### Value type
+
+ | format code   | format            | specification               |
+ | ------------- | ----------------- | --------------------------- |
+ | 0             | utf8 string       |                             |
+
+Value type can be used for binary encodings that has limited support
+for different types such as [bencode].
 
 [TFK]: https://github.com/ssbc/envelope-spec/blob/master/encoding/tfk.md
 [classic]: https://ssbc.github.io/scuttlebutt-protocol-guide/#message-format
