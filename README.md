@@ -125,9 +125,10 @@ String encoding of a classic ed25519 signature:
 
 ### Value type
 
- | format code   | format            | specification               |
- | ------------- | ----------------- | --------------------------- |
- | 0             | utf8 string       |                             |
+ | format code   | format            | specification                 |
+ | ------------- | ----------------- | ---------------------------   |
+ | 0             | utf8 string       |                               |
+ | 1             | boolean           | false 0x060100, true 0x060101 |
 
 Value type can be used for binary encodings that has limited support
 for different types such as [bencode].
