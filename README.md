@@ -105,6 +105,7 @@ String encoding of a classic blob id:
  | format code   | format            | specification               |
  | ------------- | ----------------- | --------------------------- |
  | 0             | ed25519           |                             |
+ | 3             | metafeed          | [metafeed]                  |
 
 Example: 
 
