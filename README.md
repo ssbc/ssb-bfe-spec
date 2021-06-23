@@ -56,9 +56,9 @@ String encoding of a classic feed:
  | ------------- | ----------------- | --------------------------- |
  | 0             | classic           | [classic]                   |
  | 1             | gabby grove       | [gabby grove]               |
- | 2             | bamboo            | [bamboo]                    |
- | 3             | metafeed          | [metafeed]                  |
- | 4             | cloaked group     | [private group]             |
+ | 2             | cloaked group     | [private group]             |
+ | 3             | bamboo            | [bamboo]                    |
+ | 4             | metafeed          | [metafeed]                  |
 
 Example:
 
