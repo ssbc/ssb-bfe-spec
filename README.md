@@ -28,14 +28,14 @@ For canonical, machine-readable definitions, see `binary-field-encodings.json`
 ### Identity type
 
 Sometimes also know as feeds. Since this encompasses identities that
-does not create messages themselves, such as private groups or fusion
-identities we will use the name identity instead.
+does not create messages themselves, such as fusion identities
+we will use the name identity instead.
 
  | format code   | format            | specification               |
  | ------------- | ----------------- | --------------------------- |
  | 0             | classic           | [classic]                   |
  | 1             | gabby grove       | [gabby grove]               |
- | 2             | private group     |                             |
+ | 2             |                   |                             |
  | 3             | bamboo            | [bamboo]                    |
  | 4             | metafeed          | [metafeed]                  |
  | 5             | fusion identity   | [fusionidentity]            |
@@ -58,6 +58,7 @@ String encoding of a classic feed:
  | 1             | gabby grove       | [gabby grove]               |
  | 2             | bamboo            | [bamboo]                    |
  | 3             | metafeed          | [metafeed]                  |
+ | 4             | cloaked group     | [private group]             |
 
 Example:
 
@@ -138,6 +139,7 @@ for different types such as [bencode].
 [classic]: https://ssbc.github.io/scuttlebutt-protocol-guide/#message-format
 [gabby grove]: https://github.com/ssbc/ssb-spec-drafts/tree/master/drafts/draft-ssb-core-gabbygrove/00
 [bamboo]: https://github.com/AljoschaMeyer/bamboo
+[private group]: https://github.com/ssbc/private-group-spec
 [metafeed]: https://github.com/ssb-ngi-pointer/bipfy-badger-spec
 [fusionidentity]: https://github.com/ssb-ngi-pointer/fusion-identity-spec/
 [bencode]: https://en.wikipedia.org/wiki/Bencode
