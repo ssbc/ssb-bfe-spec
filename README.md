@@ -35,10 +35,9 @@ we will use the name identity instead.
  | ------------- | ----------------- | --------------------------- |
  | 0             | classic           | [classic]                   |
  | 1             | gabby grove       | [gabby grove]               |
- | 2             |                   |                             |
- | 3             | bamboo            | [bamboo]                    |
- | 4             | metafeed          | [metafeed]                  |
- | 5             | fusion identity   | [fusionidentity]            |
+ | 2             | bamboo            | [bamboo]                    |
+ | 3             | metafeed          | [metafeed]                  |
+ | 4             | fusion identity   | [fusionidentity]            |
 
 Example:
 
