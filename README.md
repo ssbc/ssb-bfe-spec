@@ -59,6 +59,10 @@ String encoding of a classic feed:
 | 1    | 3           | bamboo        | [bamboo]        |
 | 1    | 4           | metafeed      | [metafeed]      |
 
+The data part of a null message must be be encoded as 0 bytes in the
+length of the hash. For a classic message that would be
+`0x10 00000000000000000000000000000000`.
+
 Example:
 
 String encoding of a classic message id:
