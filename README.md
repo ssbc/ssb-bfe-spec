@@ -31,13 +31,13 @@ Sometimes also know as feeds. Since this encompasses identities that
 does not create messages themselves, such as fusion identities
 we will use the name identity instead.
 
- | format code   | format            | specification               |
- | ------------- | ----------------- | --------------------------- |
- | 0             | classic           | [classic]                   |
- | 1             | gabby grove       | [gabby grove]               |
- | 2             | bamboo            | [bamboo]                    |
- | 3             | metafeed          | [metafeed]                  |
- | 4             | fusion identity   | [fusionidentity]            |
+| Type | format code | format name     | specification    |
+|------|-------------|-----------------|------------------|
+| 0    | 0           | classic         | [classic]        |
+| 0    | 1           | gabby grove     | [gabby grove]    |
+| 0    | 2           | bamboo          | [bamboo]         |
+| 0    | 3           | metafeed        | [metafeed]       |
+| 0    | 4           | fusion identity | [fusionidentity] |
 
 Example:
 
@@ -51,13 +51,13 @@ String encoding of a classic feed:
 
 ### Message type
 
- | format code   | format            | specification               |
- | ------------- | ----------------- | --------------------------- |
- | 0             | classic           | [classic]                   |
- | 1             | gabby grove       | [gabby grove]               |
- | 2             | cloaked group     | [private group]             |
- | 3             | bamboo            | [bamboo]                    |
- | 4             | metafeed          | [metafeed]                  |
+| Type | format code | format name   | specification   |
+|------|-------------|---------------|-----------------|
+| 1    | 0           | classic       | [classic]       |
+| 1    | 1           | gabby grove   | [gabby grove]   |
+| 1    | 2           | cloaked group | [private group] |
+| 1    | 3           | bamboo        | [bamboo]        |
+| 1    | 4           | metafeed      | [metafeed]      |
 
 Example:
 
@@ -80,9 +80,9 @@ type  │                hex encoded key
 
 ### Blob type
 
- | format code   | format            | specification               |
- | ------------- | ----------------- | --------------------------- |
- | 0             | classic           | [classic]                   |
+| Type | format code | format name | specification |
+|------|-------------|-------------|---------------|
+| 2    | 0           | classic     | [classic]     |
 
 Example: 
 
@@ -96,15 +96,15 @@ String encoding of a classic blob id:
 
 ### Diffie-hellman type
 
- | format code   | format            | specification               |
- | ------------- | ----------------- | --------------------------- |
- | 0             | curve25519        |                             |
+| Type | format code | format name | specification |
+|------|-------------|-------------|---------------|
+| 3    | 0           | curve25519  |               |
 
 ### Signature type
 
- | format code   | format            | specification               |
- | ------------- | ----------------- | --------------------------- |
- | 0             | ed25519           |                             |
+| Type | format code | format name | specification |
+|------|-------------|-------------|---------------|
+| 4    | 0           | ed25519     |               |
 
 Example: 
 
@@ -118,18 +118,18 @@ String encoding of a classic ed25519 signature:
 
 ### Box encoding type
 
- | format code   | format            | specification               |
- | ------------- | ----------------- | --------------------------- |
- | 0             | box1              |                             |
- | 1             | box2              |                             |
+| Type | format code | format name | specification |
+|------|-------------|-------------|---------------|
+| 5    | 0           | box1        |               |
+| 5    | 1           | box2        |               |
 
 ### Value type
 
- | format code   | format            | specification                 |
- | ------------- | ----------------- | ---------------------------   |
- | 0             | utf8 string       |                               |
- | 1             | boolean           | false 0x060100, true 0x060101 |
- | 2             | null / undefined  | 0x0602                        |
+| Type | format code | format name      | specification                 |
+|------|-------------|------------------|-------------------------------|
+| 6    | 0           | utf8 string      |                               |
+| 6    | 1           | boolean          | false 0x060100, true 0x060101 |
+| 6    | 2           | null / undefined | 0x0602                        |
 
 Value type can be used for binary encodings that has limited support
 for different types such as [bencode].
