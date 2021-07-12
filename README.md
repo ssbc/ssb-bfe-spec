@@ -59,6 +59,10 @@ String encoding of a classic feed:
 | 1    | 3           | bamboo        | [bamboo]        |
 | 1    | 4           | metafeed      | [metafeed]      |
 
+The data part of a null message must be be encoded as 0 bytes in the
+length of the hash. For a classic message that would be
+`0x10 00000000000000000000000000000000`.
+
 Example:
 
 String encoding of a classic message id:
@@ -125,11 +129,11 @@ String encoding of a classic ed25519 signature:
 
 ### Value type
 
-| Type | format code | format name      | specification                 |
-|------|-------------|------------------|-------------------------------|
-| 6    | 0           | utf8 string      |                               |
-| 6    | 1           | boolean          | false 0x060100, true 0x060101 |
-| 6    | 2           | null / undefined | 0x0602                        |
+| Type | format code | format name     | specification                 |
+|------|-------------|-----------------|-------------------------------|
+| 6    | 0           | utf8 string     |                               |
+| 6    | 1           | boolean         | false 0x060100, true 0x060101 |
+| 6    | 2           | nil / undefined | 0x0602                        |
 
 Value type can be used for binary encodings that has limited support
 for different types such as [bencode].
