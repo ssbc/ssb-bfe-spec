@@ -36,7 +36,7 @@ we will use the name identity instead.
 | 0    | 0           | classic         | [classic]        |
 | 0    | 1           | gabby grove     | [gabby grove]    |
 | 0    | 2           | bamboo          | [bamboo]         |
-| 0    | 3           | metafeed        | [metafeed]       |
+| 0    | 3           | bendy butt      | [bendy butt]     |
 | 0    | 4           | fusion identity | [fusionidentity] |
 
 Example:
@@ -57,7 +57,7 @@ String encoding of a classic feed:
 | 1    | 1           | gabby grove   | [gabby grove]   |
 | 1    | 2           | cloaked group | [private group] |
 | 1    | 3           | bamboo        | [bamboo]        |
-| 1    | 4           | metafeed      | [metafeed]      |
+| 1    | 4           | bendy butt    | [bendy butt]    |
 
 The data part of a null message must be be encoded as 0 bytes in the
 length of the hash. For a classic message that would be
@@ -143,6 +143,6 @@ for different types such as [bencode].
 [gabby grove]: https://github.com/ssbc/ssb-spec-drafts/tree/master/drafts/draft-ssb-core-gabbygrove/00
 [bamboo]: https://github.com/AljoschaMeyer/bamboo
 [private group]: https://github.com/ssbc/private-group-spec
-[metafeed]: https://github.com/ssb-ngi-pointer/bipfy-badger-spec
+[bendy butt]: https://github.com/ssb-ngi-pointer/bendy-butt-spec
 [fusionidentity]: https://github.com/ssb-ngi-pointer/fusion-identity-spec/
 [bencode]: https://en.wikipedia.org/wiki/Bencode
