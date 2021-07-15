@@ -59,10 +59,6 @@ String encoding of a classic feed:
 | 1    | 3           | bamboo        | [bamboo]        |
 | 1    | 4           | bendy butt    | [bendy butt]    |
 
-The data part of a null message must be be encoded as 0 bytes in the
-length of the hash. For a classic message that would be
-`0x10 00000000000000000000000000000000`.
-
 Example:
 
 String encoding of a classic message id:
@@ -79,7 +75,7 @@ Binary encoding (as hex) of the same thing:
   01 00  47 c8 5e ab fb 50 a3 11 08 3e 45 9f d0 ac 67 d6 70 a6 fc 2b 31 1b 60 83 a5 46 27 02 f7 5b 5d 8f
    │  │  └────────────────────┬────────────────────────────────────────────────────────────────────────┘
 type  │                hex encoded key
-     format 
+     format
 ```
 
 ### Blob type
@@ -88,7 +84,7 @@ type  │                hex encoded key
 |------|-------------|-------------|---------------|
 | 2    | 0           | classic     | [classic]     |
 
-Example: 
+Example:
 
 String encoding of a classic blob id:
 
@@ -110,7 +106,7 @@ String encoding of a classic blob id:
 |------|-------------|-------------|---------------|
 | 4    | 0           | ed25519     |               |
 
-Example: 
+Example:
 
 String encoding of a classic ed25519 signature:
 
@@ -129,11 +125,11 @@ String encoding of a classic ed25519 signature:
 
 ### Value type
 
-| Type | format code | format name     | specification                 |
-|------|-------------|-----------------|-------------------------------|
-| 6    | 0           | utf8 string     |                               |
-| 6    | 1           | boolean         | false 0x060100, true 0x060101 |
-| 6    | 2           | nil / undefined | 0x0602                        |
+| Type | format code | format name  | specification                 |
+|------|-------------|--------------|-------------------------------|
+| 6    | 0           | utf8 string  |                               |
+| 6    | 1           | boolean      | false 0x060100, true 0x060101 |
+| 6    | 2           | nil          | 0x0602                        |
 
 Value type can be used for binary encodings that has limited support
 for different types such as [bencode].
