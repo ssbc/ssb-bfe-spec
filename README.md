@@ -2,8 +2,8 @@
 
 Shortname: SSB-BFE
 
-Definition of binary encodings for common types such as message ids
-and feed ids to be used in binary feed formats.
+Definition of binary encodings for common types such as message IDs and feed IDs
+to be used in binary feed formats.
 
 The binary encoding is defined as the concatenation of three parts, often known
 as **T-F-D**:
@@ -49,7 +49,7 @@ Given a sigil-based string encoding of a classic SSB feed:
  sigil           base64 encoded data            suffix
 ```
 
-Its BFE encoding are the following bytes displayed in hexadecimal:
+Its BFE encoding is the following bytes displayed in hexadecimal:
 
 ```
   00 00 e8 20 31 38 8d df f8 b5 0e 56 b6 c0 97 42 1e 9a a8 92 ec 04 e9 42 fa fd 31 dc 3d 2c 2e 3e 52 fd
@@ -82,7 +82,7 @@ Given a sigil-based string encoding of a classic SSB message ID:
  sigil           base64 encoded data            suffix
 ```
 
-Its BFE encoding are the following bytes displayed in hexadecimal:
+Its BFE encoding is the following bytes displayed in hexadecimal:
 
 ```
   01 00 47 c8 5e ab fb 50 a3 11 08 3e 45 9f d0 ac 67 d6 70 a6 fc 2b 31 1b 60 83 a5 46 27 02 f7 5b 5d 8f
@@ -109,7 +109,7 @@ Given a sigil-based string encoding of a classic SSB blob ID:
  sigil           base64 encoded data            suffix
 ```
 
-Its BFE encoding are the following bytes displayed in hexadecimal:
+Its BFE encoding is the following bytes displayed in hexadecimal:
 
 ```
   02 00 4b bf 82 c0 73 3a 75 9f 6c 8b 95 67 e1 fb 69 93 f9 7f 95 d6 d1 32 ac f3 26 8b 3e b2 96 5b 59 fe
@@ -118,7 +118,7 @@ type  │                    data
      format
 ```
 
-### Diffie-hellman formats
+### Diffie-Hellman formats
 
 | Type code | Format code | Data length | Format name | Specification |
 |-----------|-------------|-------------|-------------|---------------|
@@ -140,7 +140,7 @@ Given a base64 string encoding of a classic SSB ed25519 signature:
                              base64 encoded signature                                        suffix
 ```
 
-Its BFE encoding are the following bytes displayed in hexadecimal:
+Its BFE encoding is the following bytes displayed in hexadecimal:
 
 ```
   04 00 9e 46 38 5a c9 fd 7d ea 2c c6 f5 fb 6e 92 ca ec ec 63 75 2a f0 ea 04 8b f2 cb a7 d6 7d 93 30 b5 ca c9 26 0a f4 be 62 b5 54 27 57 69 d0 51 cb 45 b2 b5 0e 6b 68 ac b4 3d af 0e 4d 41 d2 e0 0c 05
