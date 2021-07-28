@@ -35,7 +35,7 @@ Identities.
 |-----------|-------------|-------------|-----------------|------------------|
 | 0         | 0           | 32 bytes    | Classic         | [classic]        |
 | 0         | 1           | 32 bytes    | Gabby Grove     | [gabby grove]    |
-| 0         | 2           | ?           | Bamboo          | [bamboo]         |
+| 0         | 2           | 32 bytes    | Bamboo          | [bamboo]         |
 | 0         | 3           | 32 bytes    | Bendy Butt      | [bendy butt]     |
 | 0         | 4           | 32 bytes    | Fusion Identity | [fusionidentity] |
 
@@ -69,7 +69,7 @@ algorithm utilized, while others leave it implicit in the specification.
 | 1         | 0           | 32 bytes    | Classic       | [classic]       |
 | 1         | 1           | 32 bytes    | Gabby Grove   | [gabby grove]   |
 | 1         | 2           | 32 bytes    | Cloaked group | [private group] |
-| 1         | 3           | ?           | Bamboo        | [bamboo]        |
+| 1         | 3           | 64 bytes    | Bamboo        | [bamboo]        |
 | 1         | 4           | 32 bytes    | Bendy Butt    | [bendy butt]    |
 
 #### Example
