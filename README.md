@@ -14,22 +14,22 @@ as **T-F-D**:
 
 ## Types
 
- | Type code   | Referencing        |
- | ----------- | ------------------ |
- | 0           | Peer ID            |
- | 1           | Message ID         |
- | 2           | Blob ID            |
- | 3           | Diffie-Hellman key |
- | 4           | Signature          |
- | 5           | Encrypted data     |
- | 6           | Generic data       |
+ | Type code | Referencing        |
+ |-----------|--------------------|
+ | 0         | Feed ID            |
+ | 1         | Message ID         |
+ | 2         | Blob ID            |
+ | 3         | Diffie-Hellman key |
+ | 4         | Signature          |
+ | 5         | Encrypted data     |
+ | 6         | Generic data       |
+ | 7         | Key ID             |
 
-### Peer ID formats
 
-A peer ID TFD represents the public portion of a cryptographic keypair used to
-identify a peer, and in turn identify feeds. Note however that there are some
-identities that do not have a feed nor create messages, such as Fusion
-Identities.
+### Feed ID formats
+
+A feed ID TFD represents the public portion of a cryptographic keypair
+used to identify a feed.
 
 | Type code | Format code | Data length | Format name     | Specification    |
 |-----------|-------------|-------------|-----------------|------------------|
@@ -37,7 +37,6 @@ Identities.
 | 0         | 1           | 32 bytes    | Gabby Grove     | [gabby grove]    |
 | 0         | 2           | 32 bytes    | Bamboo          | [bamboo]         |
 | 0         | 3           | 32 bytes    | Bendy Butt      | [bendy butt]     |
-| 0         | 4           | 32 bytes    | Fusion Identity | [fusionidentity] |
 
 #### Example
 
@@ -165,11 +164,28 @@ encrypting it, such as `box` or `box2`.
 BFE supports encoding data types with no semantics attached to them. They are
 merely categorized into formats that represent their data type.
 
-| Type code | Format code | Data length | Format name | Specification                 |
-|-----------|-------------|-------------|-------------|-------------------------------|
-| 6         | 0           | Arbitrary   | UTF8 string | [UTF8]                        |
+| Type code | Format code | Data length | Format name | Specification                        |
+|-----------|-------------|-------------|-------------|--------------------------------------|
+| 6         | 0           | Arbitrary   | UTF8 string | [UTF8]                               |
 | 6         | 1           | 1 byte      | Boolean     | Data byte is 0 for False, 1 for True |
-| 6         | 2           | 0 bytes     | Nil         | [null pointer]                |
+| 6         | 2           | 0 bytes     | Nil         | [null pointer]                       |
+
+### Key ID formats
+
+A key ID TFD represents the public portion of a cryptographic keypair
+used to identify a key. This is useful for referencing the key in
+other contexts.
+
+| Type code | Format code | Data length | Key type   | Format name            | Specification    |
+|-----------|-------------|-------------|------------|------------------------|------------------|
+| 7         | 0           | 32 bytes    | ed25519    | Network Identity       |                  |
+| 7         | 1           | 32 bytes    | ?          | Fusion Identity        | [fusionidentity] |
+| 7         | 2           | 32 bytes    | curve25519 | Private group P.O. Box | [pobox]          |
+
+#### Example
+
+FIXME: probably as ssb-uri
+
 
 [TFK]: https://github.com/ssbc/envelope-spec/blob/master/encoding/tfk.md
 [classic]: https://ssbc.github.io/scuttlebutt-protocol-guide/#message-format
@@ -183,3 +199,4 @@ merely categorized into formats that represent their data type.
 [UTF8]: https://datatracker.ietf.org/doc/html/rfc3629
 [fusionidentity]: https://github.com/ssb-ngi-pointer/fusion-identity-spec/
 [bencode]: https://en.wikipedia.org/wiki/Bencode
+[pobox]: https://github.com/ssbc/private-group-spec/pull/13
