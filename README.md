@@ -170,6 +170,7 @@ merely categorized into formats that represent their data type.
 | 6         | 0           | Arbitrary   | UTF8 string | [UTF8]                        |
 | 6         | 1           | 1 byte      | Boolean     | Data byte is 0 for False, 1 for True |
 | 6         | 2           | 0 bytes     | Nil         | [null pointer]                |
+| 6         | 3           | Arbitrary   | Arbitrary bytes | N/A |
 
 [TFK]: https://github.com/ssbc/envelope-spec/blob/master/encoding/tfk.md
 [classic]: https://ssbc.github.io/scuttlebutt-protocol-guide/#message-format
