@@ -35,7 +35,7 @@
     "code": 3,
     "type": "diffie-hellman",
     "formats": [
-      { "code": 0, "format": "curve25519", "data_length": 32, "key_length": 32 }
+      { "code": 0, "format": "curve25519" }
     ]
   },
   {
