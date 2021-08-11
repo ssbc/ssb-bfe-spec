@@ -15,29 +15,29 @@ as **T-F-D**:
 ## Types
 
  | Type code   | Referencing        |
- | ----------- | ------------------ |
- | 0           | Peer ID            |
- | 1           | Message ID         |
- | 2           | Blob ID            |
- | 3           | Diffie-Hellman key |
- | 4           | Signature          |
- | 5           | Encrypted data     |
- | 6           | Generic data       |
+ |:-----------:| ------------------ |
+ | 0           | feed               |
+ | 1           | msg                |
+ | 2           | blob               |
+ | 3           | key                |
+ | 4           | signature          |
+ | 5           | encrypted          |
+ | 6           | generic            |
 
-### Peer ID formats
+### 0. feed formats
 
-A peer ID TFD represents the public portion of a cryptographic keypair used to
+A feed ID TFD represents the public portion of a cryptographic keypair used to
 identify a peer, and in turn identify feeds. Note however that there are some
 identities that do not have a feed nor create messages, such as Fusion
 Identities.
 
 | Type code | Format code | Data length | Format name     | Specification    |
-|-----------|-------------|-------------|-----------------|------------------|
-| 0         | 0           | 32 bytes    | Classic         | [classic]        |
-| 0         | 1           | 32 bytes    | Gabby Grove     | [gabby grove]    |
-| 0         | 2           | 32 bytes    | Bamboo          | [bamboo]         |
-| 0         | 3           | 32 bytes    | Bendy Butt      | [bendy butt]     |
-| 0         | 4           | 32 bytes    | Fusion Identity | [fusionidentity] |
+|:---------:|:-----------:|-------------|-----------------|------------------|
+| 0         | 0           | 32 bytes    | classic         | [classic]        |
+| 0         | 1           | 32 bytes    | gabby-grove     | [gabby grove]    |
+| 0         | 2           | 32 bytes    | bamboo          | [bamboo]         |
+| 0         | 3           | 32 bytes    | bendy-butt      | [bendy butt]     |
+| 0         | 4           | 32 bytes    | fusion-identity | [fusionidentity] |
 
 #### Example
 
@@ -58,19 +58,19 @@ type  │                    data
      format
 ```
 
-### Message ID formats
+### 1. msg formats
 
 A message ID TFD represents the hash that uniquely identifies a message
 published on a feed. Some message ID formats directly reference the hash
 algorithm utilized, while others leave it implicit in the specification.
 
 | Type code | Format code | Data length | Format name   | Specification   |
-|---------- |-------------|-------------|---------------|-----------------|
-| 1         | 0           | 32 bytes    | Classic       | [classic]       |
-| 1         | 1           | 32 bytes    | Gabby Grove   | [gabby grove]   |
-| 1         | 2           | 32 bytes    | Cloaked group | [private group] |
-| 1         | 3           | 64 bytes    | Bamboo        | [bamboo]        |
-| 1         | 4           | 32 bytes    | Bendy Butt    | [bendy butt]    |
+|:---------:|:-----------:|-------------|---------------|-----------------|
+| 1         | 0           | 32 bytes    | classic       | [classic]       |
+| 1         | 1           | 32 bytes    | gabby-grove   | [gabby grove]   |
+| 1         | 2           | 32 bytes    | cloaked       | [private group] |
+| 1         | 3           | 64 bytes    | bamboo        | [bamboo]        |
+| 1         | 4           | 32 bytes    | bendy-butt    | [bendy butt]    |
 
 #### Example
 
@@ -91,13 +91,13 @@ type  │                    data
      format
 ```
 
-### Blob ID formats
+### 2. blob formats
 
 A blob ID TFD represents the hash that uniquely identifies the blob.
 
 | Type code | Format code | Data length | Format name | Specification |
-|-----------|-------------|-------------|-------------|---------------|
-| 2         | 0           | 32 bytes    | Classic     | [classic]     |
+|:---------:|:-----------:|-------------|-------------|---------------|
+| 2         | 0           | 32 bytes    | classic     | [classic]     |
 
 #### Example
 
@@ -118,17 +118,21 @@ type  │                    data
      format
 ```
 
-### Diffie-Hellman formats
+### 3. key formats
+
+keys used for encryption
 
 | Type code | Format code | Data length | Format name | Specification |
-|-----------|-------------|-------------|-------------|---------------|
-| 3         | 0           | 32 bytes    | curve25519  |               |
+|:---------:|:-----------:|-------------|-------------|---------------|
+| 3         | 0           | 32 bytes    | envelope-dh |               |
 
-### Signature formats
 
-| Type code | Format code | Data length | Format name | specification |
-|-----------|-------------|-------------|-------------|---------------|
-| 4         | 0           | 64 bytes    | ed25519     |               |
+### 4. signature formats
+
+| Type code | Format code | Data length | Format name     | specification |
+|:---------:|:-----------:|-------------|-----------------|---------------|
+| 4         | 0           | 64 bytes    | content-ed25519 |               |
+
 
 #### Example
 
@@ -149,28 +153,28 @@ type  │                    data
      format
 ```
 
-### Encrypted data formats
+### 5. encrypted formats
 
 When content is encrypted (in other words, "boxed") in SSB, it is provided as
 uninterpretable bytes, plus a tag that identifies which algorithm was used for
 encrypting it, such as `box` or `box2`.
 
 | Type code | Format code | Data length | Format name | Specification   |
-|-----------|-------------|-------------|-------------|-----------------|
-| 5         | 0           | Arbitrary   | box         | [private box]   |
+|:---------:|:-----------:|-------------|-------------|-----------------|
+| 5         | 0           | Arbitrary   | box1        | [private box]   |
 | 5         | 1           | Arbitrary   | box2        | [envelope spec] |
 
-### Generic data formats
+### 6. generic formats
 
 BFE supports encoding data types with no semantics attached to them. They are
 merely categorized into formats that represent their data type.
 
 | Type code | Format code | Data length | Format name | Specification                 |
-|-----------|-------------|-------------|-------------|-------------------------------|
-| 6         | 0           | Arbitrary   | UTF8 string | [UTF8]                        |
-| 6         | 1           | 1 byte      | Boolean     | Data byte is 0 for False, 1 for True |
-| 6         | 2           | 0 bytes     | Nil         | [null pointer]                |
-| 6         | 3           | Arbitrary   | Arbitrary bytes | N/A |
+|:---------:|:-----------:|-------------|-------------|-------------------------------|
+| 6         | 0           | Arbitrary   | string-UTF8 | [UTF8]                        |
+| 6         | 1           | 1 byte      | boolean     | Data byte is 0 for False, 1 for True |
+| 6         | 2           | 0 bytes     | nil         | [null pointer]                |
+| 6         | 3           | Arbitrary   | any-bytes   | N/A |
 
 [TFK]: https://github.com/ssbc/envelope-spec/blob/master/encoding/tfk.md
 [classic]: https://ssbc.github.io/scuttlebutt-protocol-guide/#message-format
