@@ -24,7 +24,7 @@ as **T-F-D**:
  | 5           | encrypted          |
  | 6           | generic            |
 
-### 0. feed formats
+### 0. Feed ID formats
 
 A feed ID TFD represents the public portion of a cryptographic keypair used to
 identify a peer, and in turn identify feeds. Note however that there are some
@@ -58,7 +58,7 @@ type  │                    data
      format
 ```
 
-### 1. msg formats
+### 1. Msg ID formats
 
 A message ID TFD represents the hash that uniquely identifies a message
 published on a feed. Some message ID formats directly reference the hash
@@ -91,7 +91,7 @@ type  │                    data
      format
 ```
 
-### 2. blob formats
+### 2. Blob ID formats
 
 A blob ID TFD represents the hash that uniquely identifies the blob.
 
@@ -118,20 +118,20 @@ type  │                    data
      format
 ```
 
-### 3. key formats
+### 3. Encryption Key formats
 
 keys used for encryption
 
-| Type code | Format code | Data length | Format name | Specification |
-|:---------:|:-----------:|-------------|-------------|---------------|
-| 3         | 0           | 32 bytes    | envelope-dh |               |
+| Type code | Format code | Data length | Format name    | Specification      |
+|:---------:|:-----------:|-------------|----------------|--------------------|
+| 3         | 0           | 32 bytes    | box2-dm-dh     | [private group dm] |
 
 
-### 4. signature formats
+### 4. Signature formats
 
 | Type code | Format code | Data length | Format name     | specification |
 |:---------:|:-----------:|-------------|-----------------|---------------|
-| 4         | 0           | 64 bytes    | content-ed25519 |               |
+| 4         | 0           | 64 bytes    | msg-ed25519     |               |
 
 
 #### Example
@@ -153,7 +153,7 @@ type  │                    data
      format
 ```
 
-### 5. encrypted formats
+### 5. Encrypted data formats
 
 When content is encrypted (in other words, "boxed") in SSB, it is provided as
 uninterpretable bytes, plus a tag that identifies which algorithm was used for
@@ -162,9 +162,9 @@ encrypting it, such as `box` or `box2`.
 | Type code | Format code | Data length | Format name | Specification   |
 |:---------:|:-----------:|-------------|-------------|-----------------|
 | 5         | 0           | Arbitrary   | box1        | [private box]   |
-| 5         | 1           | Arbitrary   | box2        | [envelope spec] |
+| 5         | 1           | Arbitrary   | box2        | [private group] |
 
-### 6. generic formats
+### 6. Generic data formats
 
 BFE supports encoding data types with no semantics attached to them. They are
 merely categorized into formats that represent their data type.
@@ -180,7 +180,8 @@ merely categorized into formats that represent their data type.
 [classic]: https://ssbc.github.io/scuttlebutt-protocol-guide/#message-format
 [gabby grove]: https://github.com/ssbc/ssb-spec-drafts/tree/master/drafts/draft-ssb-core-gabbygrove/00
 [bamboo]: https://github.com/AljoschaMeyer/bamboo
-[private group]: https://github.com/ssbc/private-group-spec
+[private group]: https://github.com/ssbc/private-group-spec/tree/master/encryption
+[private group dm]: https://github.com/ssbc/private-group-spec/tree/master/direct-messages
 [bendy butt]: https://github.com/ssb-ngi-pointer/bendy-butt-spec
 [private box]: https://ssbc.github.io/scuttlebutt-protocol-guide/#private-messages
 [envelope spec]: https://github.com/ssbc/envelope-spec

@@ -35,14 +35,14 @@
     "code": 3,
     "type": "key",
     "formats": [
-      { "code": 0, "format": "envleope-dh", "data_length": 32, "key_length": 32 }
+      { "code": 0, "format": "box2-dm-dh", "data_length": 32, "key_length": 32 }
     ]
   },
   {
     "code": 4,
     "type": "signature",
     "formats": [
-      { "code": 0, "format": "content-ed25519", "data_length": 64, "signature_length": 64, "suffix": ".sig.ed25519" }
+      { "code": 0, "format": "msg-ed25519", "data_length": 64, "signature_length": 64, "suffix": ".sig.ed25519" }
     ]
   },
   {
