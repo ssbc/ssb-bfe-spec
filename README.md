@@ -122,9 +122,10 @@ type  │                    data
 
 keys used for encryption
 
-| Type code | Format code | Data length | Format name    | Specification      |
-|:---------:|:-----------:|-------------|----------------|--------------------|
-| 3         | 0           | 32 bytes    | box2-dm-dh     | [private group dm] |
+| Type code | Format code | Data length | Format name    | Specification         |
+|:---------:|:-----------:|-------------|----------------|-----------------------|
+| 3         | 0           | 32 bytes    | box2-dm-dh     | [private group dm]    |
+| 3         | 1           | 32 bytes    | box2-pobox-dh  | [private group pobox] |
 
 
 ### 4. Signature formats
@@ -182,6 +183,7 @@ merely categorized into formats that represent their data type.
 [bamboo]: https://github.com/AljoschaMeyer/bamboo
 [private group]: https://github.com/ssbc/private-group-spec/tree/master/encryption
 [private group dm]: https://github.com/ssbc/private-group-spec/tree/master/direct-messages
+[private group pobox]: https://github.com/ssbc/private-group-spec/tree/master/po-box
 [bendy butt]: https://github.com/ssb-ngi-pointer/bendy-butt-spec
 [private box]: https://ssbc.github.io/scuttlebutt-protocol-guide/#private-messages
 [envelope spec]: https://github.com/ssbc/envelope-spec
