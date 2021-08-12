@@ -1,22 +1,23 @@
 {
-  "name": "ssb-binary-field-encodings-spec",
+  "name": "ssb-bfe-spec",
   "description": "Binary Field Encodings (BFE) spec for Secure Scuttlebutt (SSB)",
   "version": "0.1.0",
-  "homepage": "https://github.com/ssb-ngi-pointer/ssb-binary-field-encodings-spec",
+  "homepage": "https://github.com/ssb-ngi-pointer/ssb-bfe-spec",
   "repository": {
     "type": "git",
-    "url": "git://github.com/ssb-ngi-pointer/ssb-binary-field-encodings-spec.git"
+    "url": "git://github.com/ssb-ngi-pointer/ssb-bfe-spec.git"
   },
   "main": "bfe.json",
   "scripts": {
     "test": "tape *.test.js | tap-spec"
   },
-  "author": "Anders Rune Jensen <arj03@protonmail.ch>",
+  "author": "public-domain",
   "contributors": [
+    "Anders Rune Jensen <arj03@protonmail.ch>",
     "Andre Staltz <contact@staltz.com>",
     "Mix Irving <mix@protozoa.nz>"
   ],
-  "license": "MIT",
+  "license": "CC0-1.0",
   "devDependencies": {
     "tap-spec": "^5.0.0",
     "tape": "^5.3.1"
