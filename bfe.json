@@ -7,8 +7,7 @@
       { "code": 0, "format": "classic",     "data_length": 32, "suffix": ".ed25519"   },
       { "code": 1, "format": "gabby-grove", "data_length": 32, "suffix": ".ggfeed-v1" },
       { "code": 2, "format": "bamboo",      "data_length": 32, "suffix": ".bamboo" },
-      { "code": 3, "format": "bendy-butt",  "data_length": 32, "suffix": ".bbfeed-v1" },
-      { "code": 4, "format": "fusion-identity", "data_length": 32, "suffix": ".fusion-v1" }
+      { "code": 3, "format": "bendy-butt",  "data_length": 32, "suffix": ".bbfeed-v1" }
     ]
   },
   {
@@ -35,7 +34,8 @@
     "code": 3,
     "type": "key",
     "formats": [
-      { "code": 0, "format": "box2-dm-dh", "data_length": 32, "key_length": 32 }
+      { "code": 0, "format": "box2-dm-dh", "data_length": 32, "key_length": 32 },
+      { "code": 0, "format": "box2-pobox-dh", "data_length": 32, "key_length": 32 }
     ]
   },
   {
@@ -61,6 +61,13 @@
       { "code": 1, "format": "boolean" },
       { "code": 2, "format": "nil" },
       { "code": 3, "format": "any-bytes" }
+    ]
+  },
+  {
+    "code": 7,
+    "type": "identity",
+    "formats": [
+      { "code": 0, "format": "po-box" , "data_length": 32 }
     ]
   }
 ]
