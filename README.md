@@ -23,13 +23,12 @@ as **T-F-D**:
  | 4           | signature          |
  | 5           | encrypted          |
  | 6           | generic            |
+ | 7           | identity           |
 
 ### 0. Feed ID formats
 
 A feed ID TFD represents the public portion of a cryptographic keypair used to
-identify a peer, and in turn identify feeds. Note however that there are some
-identities that do not have a feed nor create messages, such as Fusion
-Identities.
+identify a feed, and verify message signatures.
 
 | Type code | Format code | Data length | Format name     | Specification    |
 |:---------:|:-----------:|-------------|-----------------|------------------|
@@ -37,7 +36,6 @@ Identities.
 | 0         | 1           | 32 bytes    | gabby-grove     | [gabby grove]    |
 | 0         | 2           | 32 bytes    | bamboo          | [bamboo]         |
 | 0         | 3           | 32 bytes    | bendy-butt      | [bendy butt]     |
-| 0         | 4           | 32 bytes    | fusion-identity | [fusionidentity] |
 
 #### Example
 
@@ -176,6 +174,17 @@ merely categorized into formats that represent their data type.
 | 6         | 1           | 1 byte      | boolean     | Data byte is 0 for False, 1 for True |
 | 6         | 2           | 0 bytes     | nil         | [null pointer]                |
 | 6         | 3           | Arbitrary   | any-bytes   | N/A |
+
+
+### 7. Identity formats
+
+Identities are distinct from feedIds in that they are not a key bound to a single feed/ device,
+and they are never used for signing of messages.
+
+| Type code | Format code | Data length | Format name | Specification                 |
+|:---------:|:-----------:|-------------|-------------|-------------------------------|
+| 7         | 0           | 32          | po-box      | [private group pobox]         |
+
 
 [TFK]: https://github.com/ssbc/envelope-spec/blob/master/encoding/tfk.md
 [classic]: https://ssbc.github.io/scuttlebutt-protocol-guide/#message-format
