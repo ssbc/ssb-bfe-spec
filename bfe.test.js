@@ -2,6 +2,15 @@ const tape = require('tape')
 const bfeTypes = require('./bfe.json')
 
 tape('bfe', function (t) {
+  t.true(
+    bfeTypes.every((type, i) => {
+      return (type.code === i) && type.formats.every((format, j) => {
+        return format.code === j
+      })
+    }),
+    'type and format codes are reflected by bfe.json structure'
+  )
+
   const sigiledTypes = bfeTypes.reduce((acc, type) => {
     if (type.sigil) return [...acc, type]
     return acc

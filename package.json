@@ -9,8 +9,9 @@
   },
   "main": "bfe.json",
   "scripts": {
-    "test": "tape *.test.js | tap-spec"
-  },
+    "test": "tape *.test.js | tap-spec",
+    "prepublishOnly": "npm run test"
+  }, 
   "author": "public-domain",
   "contributors": [
     "Anders Rune Jensen <arj03@protonmail.ch>",
