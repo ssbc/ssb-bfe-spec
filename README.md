@@ -173,7 +173,7 @@ merely categorized into formats that represent their data type.
 | 6         | 0           | Arbitrary   | string-UTF8 | [UTF8]                        |
 | 6         | 1           | 1 byte      | boolean     | Data byte is 0 for False, 1 for True |
 | 6         | 2           | 0 bytes     | nil         | [null pointer]                |
-| 6         | 3           | Arbitrary   | any-bytes   | N/A |
+| 6         | 3           | Arbitrary   | any-bytes   | Arbitrary sequence of bytes |
 
 
 ### 7. Identity formats
