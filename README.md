@@ -14,16 +14,16 @@ as **T-F-D**:
 
 ## Types
 
- | Type code   | Referencing        | In `bfe.json` |
- |:-----------:| ------------------ | ------------- |
- | 0           | Feed ID            | `feed`        |
- | 1           | Message ID         | `msg`         |
- | 2           | Blob ID            | `blob`        |
- | 3           | Encryption key     | `key`         |
- | 4           | Signature          | `signature`   |
- | 5           | Encrypted data     | `encrypted`   |
- | 6           | Generic data       | `generic`     |
- | 7           | Identity           | `identity`    |
+ | Type code   | Referencing        | In `bfe.json`    |
+ |:-----------:| ------------------ | ---------------- |
+ | 0           | Feed ID            | `feed`           |
+ | 1           | Message ID         | `msg`            |
+ | 2           | Blob ID            | `blob`           |
+ | 3           | Encryption key     | `encryption-key` |
+ | 4           | Signature          | `signature`      |
+ | 5           | Encrypted data     | `encrypted`      |
+ | 6           | Generic data       | `generic`        |
+ | 7           | Identity           | `identity`       |
 
 ### 0. Feed ID formats
 

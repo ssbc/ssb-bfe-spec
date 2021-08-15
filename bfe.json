@@ -32,7 +32,7 @@
   },
   {
     "code": 3,
-    "type": "key",
+    "type": "encryption-key",
     "formats": [
       { "code": 0, "format": "box2-dm-dh", "data_length": 32, "key_length": 32 },
       { "code": 0, "format": "box2-pobox-dh", "data_length": 32, "key_length": 32 }
