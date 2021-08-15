@@ -1,6 +1,6 @@
-# SSB Binary Field Encodings
+# SSB Binary Field Encodings Specification
 
-Shortname: SSB-BFE
+Shortname: `ssb-bfe-spec`
 
 Definition of binary encodings for common types such as message IDs and feed IDs
 to be used in binary feed formats.
