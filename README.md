@@ -14,30 +14,28 @@ as **T-F-D**:
 
 ## Types
 
- | Type code   | Referencing        |
- | ----------- | ------------------ |
- | 0           | Peer ID            |
- | 1           | Message ID         |
- | 2           | Blob ID            |
- | 3           | Diffie-Hellman key |
- | 4           | Signature          |
- | 5           | Encrypted data     |
- | 6           | Generic data       |
+ | Type code   | Referencing        | In `bfe.json`    |
+ |:-----------:| ------------------ | ---------------- |
+ | 0           | Feed ID            | `feed`           |
+ | 1           | Message ID         | `msg`            |
+ | 2           | Blob ID            | `blob`           |
+ | 3           | Encryption key     | `encryption-key` |
+ | 4           | Signature          | `signature`      |
+ | 5           | Encrypted data     | `encrypted`      |
+ | 6           | Generic data       | `generic`        |
+ | 7           | Identity           | `identity`       |
 
-### Peer ID formats
+### 0. Feed ID formats
 
-A peer ID TFD represents the public portion of a cryptographic keypair used to
-identify a peer, and in turn identify feeds. Note however that there are some
-identities that do not have a feed nor create messages, such as Fusion
-Identities.
+A feed ID TFD represents the public portion of a cryptographic keypair used to
+identify a feed, and verify message signatures.
 
-| Type code | Format code | Data length | Format name     | Specification    |
-|-----------|-------------|-------------|-----------------|------------------|
-| 0         | 0           | 32 bytes    | Classic         | [classic]        |
-| 0         | 1           | 32 bytes    | Gabby Grove     | [gabby grove]    |
-| 0         | 2           | 32 bytes    | Bamboo          | [bamboo]         |
-| 0         | 3           | 32 bytes    | Bendy Butt      | [bendy butt]     |
-| 0         | 4           | 32 bytes    | Fusion Identity | [fusionidentity] |
+| Type code | Format code | Data length | Specification      | In `bfe.json` |
+|:---------:|:-----------:|-------------|--------------------|---------------|
+| 0         | 0           | 32 bytes    | [Classic SSB Feed] | `classic`     |
+| 0         | 1           | 32 bytes    | [Gabby Grove]      | `gabby-grove` |
+| 0         | 2           | 32 bytes    | [Bamboo]           | `bamboo`      |
+| 0         | 3           | 32 bytes    | [Bendy Butt]       | `bendy-butt`  |
 
 #### Example
 
@@ -58,19 +56,19 @@ type  │                    data
      format
 ```
 
-### Message ID formats
+### 1. Message ID formats
 
 A message ID TFD represents the hash that uniquely identifies a message
 published on a feed. Some message ID formats directly reference the hash
 algorithm utilized, while others leave it implicit in the specification.
 
-| Type code | Format code | Data length | Format name   | Specification   |
-|---------- |-------------|-------------|---------------|-----------------|
-| 1         | 0           | 32 bytes    | Classic       | [classic]       |
-| 1         | 1           | 32 bytes    | Gabby Grove   | [gabby grove]   |
-| 1         | 2           | 32 bytes    | Cloaked group | [private group] |
-| 1         | 3           | 64 bytes    | Bamboo        | [bamboo]        |
-| 1         | 4           | 32 bytes    | Bendy Butt    | [bendy butt]    |
+| Type code | Format code | Data length | Specification     | In `bfe.json` |
+|:---------:|:-----------:|-------------|-------------------|---------------|
+| 1         | 0           | 32 bytes    | [Classic SSB Msg] | `classic`     |
+| 1         | 1           | 32 bytes    | [Gabby Grove]     | `gabby-grove` |
+| 1         | 2           | 32 bytes    | [Private Group]   | `cloaked`     |
+| 1         | 3           | 64 bytes    | [Bamboo]          | `bamboo`      |
+| 1         | 4           | 32 bytes    | [Bendy Butt]      | `bendy-butt`  |
 
 #### Example
 
@@ -91,13 +89,13 @@ type  │                    data
      format
 ```
 
-### Blob ID formats
+### 2. Blob ID formats
 
 A blob ID TFD represents the hash that uniquely identifies the blob.
 
-| Type code | Format code | Data length | Format name | Specification |
-|-----------|-------------|-------------|-------------|---------------|
-| 2         | 0           | 32 bytes    | Classic     | [classic]     |
+| Type code | Format code | Data length | Specification      | In `bfe.json` |
+|:---------:|:-----------:|-------------|--------------------|---------------|
+| 2         | 0           | 32 bytes    | [Classic SSB Blob] | `classic`     |
 
 #### Example
 
@@ -118,21 +116,26 @@ type  │                    data
      format
 ```
 
-### Diffie-Hellman formats
+### 3. Encryption Key formats
 
-| Type code | Format code | Data length | Format name | Specification |
-|-----------|-------------|-------------|-------------|---------------|
-| 3         | 0           | 32 bytes    | curve25519  |               |
+Keys used for encryption
 
-### Signature formats
+| Type code | Format code | Data length | Specification          | In `bfe.json`   |
+|:---------:|:-----------:|-------------|------------------------|-----------------|
+| 3         | 0           | 32 bytes    | [Private Group DM]     | `box2-dm-dh`    |
+| 3         | 1           | 32 bytes    | [Private Group PO box] | `box2-pobox-dh` |
 
-| Type code | Format code | Data length | Format name | specification |
-|-----------|-------------|-------------|-------------|---------------|
-| 4         | 0           | 64 bytes    | ed25519     |               |
+
+### 4. Signature formats
+
+| Type code | Format code | Data length | Specification           | In `bfe.json` |
+|:---------:|:-----------:|-------------|-------------------------|---------------|
+| 4         | 0           | 64 bytes    | [Classic SSB Signature] | `msg-ed25519` |
+
 
 #### Example
 
-Given a base64 string encoding of a classic SSB ed25519 signature:
+Given a base64 string encoding of a Classic SSB ed25519 signature:
 
 ```
   nkY4Wsn9feosxvX7bpLK7OxjdSrw6gSL8sun1n2TMLXKySYK9L5itVQnV2nQUctFsrUOa2istD2vDk1B0uAMBQ==.sig.ed25519
@@ -149,38 +152,54 @@ type  │                    data
      format
 ```
 
-### Encrypted data formats
+### 5. Encrypted data formats
 
 When content is encrypted (in other words, "boxed") in SSB, it is provided as
 uninterpretable bytes, plus a tag that identifies which algorithm was used for
 encrypting it, such as `box` or `box2`.
 
-| Type code | Format code | Data length | Format name | Specification   |
-|-----------|-------------|-------------|-------------|-----------------|
-| 5         | 0           | Arbitrary   | box         | [private box]   |
-| 5         | 1           | Arbitrary   | box2        | [envelope spec] |
+| Type code | Format code | Data length | Specification   | In `bfe.json` |
+|:---------:|:-----------:|-------------|-----------------|---------------|
+| 5         | 0           | Arbitrary   | [Private Box]   | `box1`        |
+| 5         | 1           | Arbitrary   | [Private Group] | `box2`        |
 
-### Generic data formats
+### 6. Generic data formats
 
 BFE supports encoding data types with no semantics attached to them. They are
 merely categorized into formats that represent their data type.
 
-| Type code | Format code | Data length | Format name | Specification                 |
-|-----------|-------------|-------------|-------------|-------------------------------|
-| 6         | 0           | Arbitrary   | UTF8 string | [UTF8]                        |
-| 6         | 1           | 1 byte      | Boolean     | Data byte is 0 for False, 1 for True |
-| 6         | 2           | 0 bytes     | Nil         | [null pointer]                |
-| 6         | 3           | Arbitrary   | Arbitrary bytes | N/A |
+| Type code | Format code | Data length | Specification         | In `bfe.json` |
+|:---------:|:-----------:|-------------|-----------------------|---------------|
+| 6         | 0           | Arbitrary   | [UTF8] String         | `string-UTF8` |
+| 6         | 1           | 1 byte      | Boolean: data byte is 0 for False, 1 for True | `boolean` |
+| 6         | 2           | 0 bytes     | [Null pointer]        | `nil`         |
+| 6         | 3           | Arbitrary   | Any sequence of bytes | `any-bytes`   |
+
+
+### 7. Identity formats
+
+Identities are distinct from feedIds in that they are not a key bound to a single feed/ device,
+and they are never used for signing of messages.
+
+| Type code | Format code | Data length | Specification         | In `bfe.json` |
+|:---------:|:-----------:|-------------|-----------------------|---------------|
+| 7         | 0           | 32          | [Private Group PO box] | `po-box`     |
+
 
 [TFK]: https://github.com/ssbc/envelope-spec/blob/master/encoding/tfk.md
-[classic]: https://ssbc.github.io/scuttlebutt-protocol-guide/#message-format
-[gabby grove]: https://github.com/ssbc/ssb-spec-drafts/tree/master/drafts/draft-ssb-core-gabbygrove/00
-[bamboo]: https://github.com/AljoschaMeyer/bamboo
-[private group]: https://github.com/ssbc/private-group-spec
-[bendy butt]: https://github.com/ssb-ngi-pointer/bendy-butt-spec
-[private box]: https://ssbc.github.io/scuttlebutt-protocol-guide/#private-messages
-[envelope spec]: https://github.com/ssbc/envelope-spec
-[null pointer]: https://en.wikipedia.org/wiki/Null_pointer
+[Classic SSB Feed]: https://ssbc.github.io/scuttlebutt-protocol-guide/#keys-and-identities
+[Classic SSB Msg]: https://ssbc.github.io/scuttlebutt-protocol-guide/#message-format
+[Classic SSB Blob]: https://ssbc.github.io/scuttlebutt-protocol-guide/#blobs
+[Classic SSB Signature]: https://ssbc.github.io/scuttlebutt-protocol-guide/#signature
+[Gabby Grove]: https://github.com/ssbc/ssb-spec-drafts/tree/master/drafts/draft-ssb-core-gabbygrove/00
+[Bamboo]: https://github.com/AljoschaMeyer/bamboo
+[Private Group]: https://github.com/ssbc/private-group-spec/tree/master/encryption
+[Private Group DM]: https://github.com/ssbc/private-group-spec/tree/master/direct-messages
+[Private Group PO box]: https://github.com/ssbc/private-group-spec/tree/master/po-box
+[Bendy Butt]: https://github.com/ssb-ngi-pointer/bendy-butt-spec
+[Private Box]: https://ssbc.github.io/scuttlebutt-protocol-guide/#private-messages
+[Envelope Spec]: https://github.com/ssbc/envelope-spec
+[Null pointer]: https://en.wikipedia.org/wiki/Null_pointer
 [UTF8]: https://datatracker.ietf.org/doc/html/rfc3629
-[fusionidentity]: https://github.com/ssb-ngi-pointer/fusion-identity-spec/
-[bencode]: https://en.wikipedia.org/wiki/Bencode
+[Fusion Identity]: https://github.com/ssb-ngi-pointer/fusion-identity-spec/
+[Bencode]: https://en.wikipedia.org/wiki/Bencode
