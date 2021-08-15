@@ -2,13 +2,21 @@ const tape = require('tape')
 const bfeTypes = require('./bfe.json')
 
 tape('bfe', function (t) {
-  t.true(
-    bfeTypes.every((type, i) => {
-      return (type.code === i) && type.formats.every((format, j) => {
-        return format.code === j
-      })
-    }),
-    'type and format codes are reflected by bfe.json structure'
+  t.false(
+    bfeTypes.find((type, i) => type.code !== i),
+    'type.code = Array index in bfe.json'
+  )
+
+  t.false(
+    bfeTypes.reduce((acc, type) => {
+      if (acc) return acc // already found a problem!
+
+      const problem = type.formats.find((format, i) => format.code !== i)
+      return problem
+        ? { type: type.type, format: problem }
+        : acc
+    }, undefined),
+    'format.code = Array index in bfe.json'
   )
 
   const sigiledTypes = bfeTypes.reduce((acc, type) => {
