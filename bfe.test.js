@@ -19,35 +19,39 @@ tape('bfe', function (t) {
     'format.code = Array index in bfe.json'
   )
 
-  const sigiledTypes = bfeTypes.reduce((acc, type) => {
-    if (type.sigil) return [...acc, type]
-    return acc
-  }, [])
-  t.equal(
-    sigiledTypes.length,
-    new Set(sigiledTypes.map((type) => type.sigil)).size, // unique sigil
-    'each sigil is unique to a type'
-  )
-  t.equal(sigiledTypes.length, 3, 'there are only 3 sigils')
+  const sigils = new Set()
+  loopOverTypes: for (const type of bfeTypes) {
+    for (const {sigil} of type.formats) {
+      if (sigils.has(sigil)) t.fail('Sigil is not unique for type ' + type.type)
+      else if (sigil) {
+        sigils.add(sigil)
+        continue loopOverTypes;
+      }
+    }
+  }
+  t.pass('each sigil is unique to a type')
+  t.equal(sigils.size, 3, 'there are only 3 sigils')
 
-  sigiledTypes.forEach(type => {
-    const typeSuffixes = type.formats.reduce((acc, format) => {
-      if (format.suffix && format.suffix.length) acc.add(format.suffix)
-      return acc
-    }, new Set())
+  const sigilsAndSuffixes = new Set()
+  for (const type of bfeTypes) {
+    for (const {sigil, suffix, format} of type.formats) {
+      if (sigil || suffix) {
+        const sigilSuffix = `|${sigil}|${suffix}|`
+        if (sigilsAndSuffixes.has(sigilSuffix)) {
+          t.fail('Sigil & suffix is not unique for type/format '+ type.type + ' ' + format)
+        }
+        else sigilsAndSuffixes.add(sigilSuffix)
+      }
+    }
+  }
+  t.pass('each sigil & suffix combination is unique')
 
-    t.equal(
-      typeSuffixes.size,
-      type.formats.length,
-      `each type/format with sigil ${type.sigil} has unique suffix` // unique to that type
-    )
-  })
-
-  const sigillessSuffixFormats = bfeTypes.reduce((acc, type) => {
-    if (type.sigil) return acc
-
-    return [...acc, ...type.formats.filter((format) => format.suffix)]
-  }, [])
+  const sigillessSuffixFormats = bfeTypes.reduce((acc, type) =>
+    [
+      ...acc,
+      ...type.formats.filter((format) => !format.sigil && format.suffix)
+    ]
+  , [])
   t.equal(
     sigillessSuffixFormats.length,
     new Set(sigillessSuffixFormats.map((type) => type.suffix)).size,
