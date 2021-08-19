@@ -8,6 +8,9 @@
     "url": "git://github.com/ssb-ngi-pointer/ssb-bfe-spec.git"
   },
   "main": "bfe.json",
+  "files": [
+    "bfe.json"
+  ],
   "scripts": {
     "test": "tape *.test.js | tap-spec",
     "prepublishOnly": "npm run test"
