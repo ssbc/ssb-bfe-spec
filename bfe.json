@@ -2,32 +2,29 @@
   {
     "code": 0,
     "type": "feed",
-    "sigil": "@",
     "formats": [
-      { "code": 0, "format": "classic",     "data_length": 32, "suffix": ".ed25519"   },
-      { "code": 1, "format": "gabby-grove", "data_length": 32, "suffix": ".ggfeed-v1" },
-      { "code": 2, "format": "bamboo",      "data_length": 32, "suffix": ".bamboo" },
-      { "code": 3, "format": "bendy-butt",  "data_length": 32, "suffix": ".bbfeed-v1" }
+      { "code": 0, "format": "classic",      "data_length": 32, "sigil": "@", "suffix": ".ed25519" },
+      { "code": 1, "format": "gabby-grove",  "data_length": 32 },
+      { "code": 2, "format": "bamboo",       "data_length": 32 },
+      { "code": 3, "format": "bendybutt-v1", "data_length": 32 }
     ]
   },
   {
     "code": 1,
-    "type": "msg",
-    "sigil": "%",
+    "type": "message",
     "formats": [
-      { "code": 0, "format": "classic",     "data_length": 32, "suffix": ".sha256"   },
-      { "code": 1, "format": "gabby-grove", "data_length": 32, "suffix": ".ggmsg-v1" },
-      { "code": 2, "format": "cloaked",     "data_length": 32, "suffix": ".cloaked" },
-      { "code": 3, "format": "bamboo",      "data_length": 64, "suffix": ".bamboo" },
-      { "code": 4, "format": "bendy-butt",  "data_length": 32, "suffix": ".bbmsg-v1" }
+      { "code": 0, "format": "classic",      "data_length": 32, "sigil": "%", "suffix": ".sha256" },
+      { "code": 1, "format": "gabby-grove",  "data_length": 32 },
+      { "code": 2, "format": "cloaked",      "data_length": 32, "sigil": "%", "suffix": ".cloaked" },
+      { "code": 3, "format": "bamboo",       "data_length": 64 },
+      { "code": 4, "format": "bendybutt-v1", "data_length": 32 }
     ]
   },
   {
     "code": 2,
     "type": "blob",
-    "sigil": "&",
     "formats": [
-      { "code": 0, "format": "classic", "data_length": 32, "suffix": ".sha256" }
+      { "code": 0, "format": "classic", "data_length": 32, "sigil": "&", "suffix": ".sha256" }
     ]
   },
   {
