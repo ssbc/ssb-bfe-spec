@@ -65,6 +65,7 @@
     "type": "identity",
     "formats": [
       { "code": 0, "format": "po-box" , "data_length": 32 }
+      { "code": 1, "format": "network" , "data_length": 32 }
     ]
   }
 ]

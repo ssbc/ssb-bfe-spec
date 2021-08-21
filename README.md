@@ -178,12 +178,12 @@ merely categorized into formats that represent their data type.
 
 ### 7. Identity formats
 
-Identities are distinct from feedIds in that they are not a key bound to a single feed/ device,
-and they are never used for signing of messages.
+Identities are distinct from feedIds in that they are not a key bound to a single feed / device.
 
-| Type code | Format code | Data length | Specification         | In `bfe.json` |
-|:---------:|:-----------:|-------------|-----------------------|---------------|
-| 7         | 0           | 32          | [Private Group PO box] | `po-box`     |
+| Type code | Format code | Data length | Specification          | In `bfe.json` |
+|:---------:|:-----------:|-------------|------------------------|---------------|
+| 7         | 0           | 32          | [Private Group PO box] | `po-box`      |
+| 7         | 1           | 32          | [Network identity]     | `network`     |
 
 
 [TFK]: https://github.com/ssbc/envelope-spec/blob/master/encoding/tfk.md
