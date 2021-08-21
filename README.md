@@ -203,3 +203,4 @@ Identities are distinct from feedIds in that they are not a key bound to a singl
 [UTF8]: https://datatracker.ietf.org/doc/html/rfc3629
 [Fusion Identity]: https://github.com/ssb-ngi-pointer/fusion-identity-spec/
 [Bencode]: https://en.wikipedia.org/wiki/Bencode
+[Network identity]: https://github.com/ssb-ngi-pointer/ssb-network-identity-spec 
