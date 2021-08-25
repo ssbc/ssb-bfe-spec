@@ -30,12 +30,12 @@ as **T-F-D**:
 A feed ID TFD represents the public portion of a cryptographic keypair used to
 identify a feed, and verify message signatures.
 
-| Type code | Format code | Data length | Specification      | In `bfe.json`  |
-|:---------:|:-----------:|-------------|--------------------|----------------|
-| 0         | 0           | 32 bytes    | [Classic SSB Feed] | `classic`      |
-| 0         | 1           | 32 bytes    | [Gabby Grove]      | `gabby-grove`  |
-| 0         | 2           | 32 bytes    | [Bamboo]           | `bamboo`       |
-| 0         | 3           | 32 bytes    | [Bendy Butt]       | `bendybutt-v1` |
+| Type code | Format code | Data length | Specification      | In `bfe.json`   |
+|:---------:|:-----------:|-------------|--------------------|-----------------|
+| 0         | 0           | 32 bytes    | [Classic SSB Feed] | `classic`       |
+| 0         | 1           | 32 bytes    | [Gabby Grove]      | `gabbygrove-v1` |
+| 0         | 2           | 32 bytes    | [Bamboo]           | `bamboo`        |
+| 0         | 3           | 32 bytes    | [Bendy Butt]       | `bendybutt-v1`  |
 
 #### Example
 
@@ -62,13 +62,13 @@ A message ID TFD represents the hash that uniquely identifies a message
 published on a feed. Some message ID formats directly reference the hash
 algorithm utilized, while others leave it implicit in the specification.
 
-| Type code | Format code | Data length | Specification     | In `bfe.json`  |
-|:---------:|:-----------:|-------------|-------------------|----------------|
-| 1         | 0           | 32 bytes    | [Classic SSB Msg] | `classic`      |
-| 1         | 1           | 32 bytes    | [Gabby Grove]     | `gabby-grove`  |
-| 1         | 2           | 32 bytes    | [Private Group]   | `cloaked`      |
-| 1         | 3           | 64 bytes    | [Bamboo]          | `bamboo`       |
-| 1         | 4           | 32 bytes    | [Bendy Butt]      | `bendybutt-v1` |
+| Type code | Format code | Data length | Specification     | In `bfe.json`   |
+|:---------:|:-----------:|-------------|-------------------|-----------------|
+| 1         | 0           | 32 bytes    | [Classic SSB Msg] | `classic`       |
+| 1         | 1           | 32 bytes    | [Gabby Grove]     | `gabbygrove-v1` |
+| 1         | 2           | 32 bytes    | [Private Group]   | `cloaked`       |
+| 1         | 3           | 64 bytes    | [Bamboo]          | `bamboo`        |
+| 1         | 4           | 32 bytes    | [Bendy Butt]      | `bendybutt-v1`  |
 
 #### Example
 
