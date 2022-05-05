@@ -3,10 +3,11 @@
     "code": 0,
     "type": "feed",
     "formats": [
-      { "code": 0, "format": "classic",      "data_length": 32, "sigil": "@", "suffix": ".ed25519" },
-      { "code": 1, "format": "gabbygrove-v1",  "data_length": 32 },
-      { "code": 2, "format": "bamboo",       "data_length": 32 },
-      { "code": 3, "format": "bendybutt-v1", "data_length": 32 }
+      { "code": 0, "format": "classic",       "data_length": 32, "sigil": "@", "suffix": ".ed25519" },
+      { "code": 1, "format": "gabbygrove-v1", "data_length": 32 },
+      { "code": 2, "format": "bamboo",        "data_length": 32 },
+      { "code": 3, "format": "bendybutt-v1",  "data_length": 32 },
+      { "code": 4, "format": "butt2-v1",      "data_length": 32 }
     ]
   },
   {
@@ -14,10 +15,11 @@
     "type": "message",
     "formats": [
       { "code": 0, "format": "classic",      "data_length": 32, "sigil": "%", "suffix": ".sha256" },
-      { "code": 1, "format": "gabbygrove-v1",  "data_length": 32 },
+      { "code": 1, "format": "gabbygrove-v1","data_length": 32 },
       { "code": 2, "format": "cloaked",      "data_length": 32, "sigil": "%", "suffix": ".cloaked" },
       { "code": 3, "format": "bamboo",       "data_length": 64 },
-      { "code": 4, "format": "bendybutt-v1", "data_length": 32 }
+      { "code": 4, "format": "bendybutt-v1", "data_length": 32 },
+      { "code": 5, "format": "butt2-v1",     "data_length": 32 }
     ]
   },
   {
