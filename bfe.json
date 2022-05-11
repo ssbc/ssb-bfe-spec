@@ -41,7 +41,8 @@
     "code": 4,
     "type": "signature",
     "formats": [
-      { "code": 0, "format": "msg-ed25519", "data_length": 64, "signature_length": 64, "suffix": ".sig.ed25519" }
+      { "code": 0, "format": "msg-ed25519", "data_length": 64, "signature_length": 64, "suffix": ".sig.ed25519" },
+      { "code": 1, "format": "butt2-v1", "data_length": 64, "signature_length": 64, "suffix": ".sig.butt2" }
     ]
   },
   {
