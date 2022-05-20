@@ -7,7 +7,7 @@
       { "code": 1, "format": "gabbygrove-v1", "data_length": 32 },
       { "code": 2, "format": "bamboo",        "data_length": 32 },
       { "code": 3, "format": "bendybutt-v1",  "data_length": 32 },
-      { "code": 4, "format": "butt2-v1",      "data_length": 32 }
+      { "code": 4, "format": "buttwoo-v1",      "data_length": 32 }
     ]
   },
   {
@@ -19,7 +19,7 @@
       { "code": 2, "format": "cloaked",      "data_length": 32, "sigil": "%", "suffix": ".cloaked" },
       { "code": 3, "format": "bamboo",       "data_length": 64 },
       { "code": 4, "format": "bendybutt-v1", "data_length": 32 },
-      { "code": 5, "format": "butt2-v1",     "data_length": 32 }
+      { "code": 5, "format": "buttwoo-v1",     "data_length": 32 }
     ]
   },
   {
@@ -27,7 +27,7 @@
     "type": "blob",
     "formats": [
       { "code": 0, "format": "classic", "data_length": 32, "sigil": "&", "suffix": ".sha256" },
-      { "code": 1, "format": "butt2-v1", "data_length": 32, "sigil": "&", "suffix": ".butt2" }
+      { "code": 1, "format": "buttwoo-v1", "data_length": 32, "sigil": "&", "suffix": ".butt2" }
     ]
   },
   {
@@ -43,7 +43,7 @@
     "type": "signature",
     "formats": [
       { "code": 0, "format": "msg-ed25519", "data_length": 64, "signature_length": 64, "suffix": ".sig.ed25519" },
-      { "code": 1, "format": "butt2-v1", "data_length": 64, "signature_length": 64, "suffix": ".sig.butt2" }
+      { "code": 1, "format": "buttwoo-v1", "data_length": 64, "signature_length": 64, "suffix": ".sig.butt2" }
     ]
   },
   {
