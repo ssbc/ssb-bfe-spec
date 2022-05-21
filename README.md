@@ -136,9 +136,9 @@ Keys used for encryption
 
 ### 4. Signature formats
 
-| Type code | Format code | Data length | Specification           | In `bfe.json`  |
-|:---------:|:-----------:|-------------|-------------------------|----------------|
-| 4         | 0           | 64 bytes    | [Classic SSB Signature] | `msg-ed25519`  |
+| Type code | Format code | Data length | Specification           | In `bfe.json` |
+|:---------:|:-----------:|-------------|-------------------------|---------------|
+| 4         | 0           | 64 bytes    | [Classic SSB Signature] | `msg-ed25519` |
 
 
 #### Example
