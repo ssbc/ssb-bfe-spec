@@ -26,8 +26,7 @@
     "code": 2,
     "type": "blob",
     "formats": [
-      { "code": 0, "format": "classic", "data_length": 32, "sigil": "&", "suffix": ".sha256" },
-      { "code": 1, "format": "buttwoo-v1", "data_length": 32, "sigil": "&", "suffix": ".butt2" }
+      { "code": 0, "format": "classic", "data_length": 32, "sigil": "&", "suffix": ".sha256" }
     ]
   },
   {
