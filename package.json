@@ -1,7 +1,7 @@
 {
   "name": "ssb-bfe-spec",
   "description": "Binary Field Encodings (BFE) spec for Secure Scuttlebutt (SSB)",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "homepage": "https://github.com/ssbc/ssb-bfe-spec",
   "repository": {
     "type": "git",
