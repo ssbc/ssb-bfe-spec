@@ -42,6 +42,7 @@ identify a feed, and verify message signatures.
 | 0         | 1           | 32 bytes    | [Gabby Grove]      | `gabbygrove-v1` |
 | 0         | 2           | 32 bytes    | [Bamboo]           | `bamboo`        |
 | 0         | 3           | 32 bytes    | [Bendy Butt]       | `bendybutt-v1`  |
+| 0         | 4           | 32 bytes    | [Buttwoo]          | `buttwoo-v1`    |
 
 #### Example
 
@@ -75,6 +76,7 @@ algorithm utilized, while others leave it implicit in the specification.
 | 1         | 2           | 32 bytes    | [Private Group]   | `cloaked`       |
 | 1         | 3           | 64 bytes    | [Bamboo]          | `bamboo`        |
 | 1         | 4           | 32 bytes    | [Bendy Butt]      | `bendybutt-v1`  |
+| 1         | 5           | 32 bytes    | [Buttwoo]         | `buttwoo-v1`    |
 
 #### Example
 
@@ -203,6 +205,7 @@ and they are never used for signing of messages.
 [Private Group DM]: https://github.com/ssbc/private-group-spec/tree/master/direct-messages
 [Private Group PO box]: https://github.com/ssbc/private-group-spec/tree/master/po-box
 [Bendy Butt]: https://github.com/ssb-ngi-pointer/bendy-butt-spec
+[Buttwoo]: https://github.com/ssbc/ssb-buttwoo-spec/
 [Private Box]: https://ssbc.github.io/scuttlebutt-protocol-guide/#private-messages
 [Envelope Spec]: https://github.com/ssbc/envelope-spec
 [Null pointer]: https://en.wikipedia.org/wiki/Null_pointer
