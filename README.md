@@ -43,6 +43,7 @@ identify a feed, and verify message signatures.
 | 0         | 2           | 32 bytes    | [Bamboo]           | `bamboo`        |
 | 0         | 3           | 32 bytes    | [Bendy Butt]       | `bendybutt-v1`  |
 | 0         | 4           | 32 bytes    | [Buttwoo]          | `buttwoo-v1`    |
+| 0         | 5           | 32 bytes    | [Index feed]       | `indexed-v1`    |
 
 #### Example
 
@@ -77,6 +78,7 @@ algorithm utilized, while others leave it implicit in the specification.
 | 1         | 3           | 64 bytes    | [Bamboo]          | `bamboo`        |
 | 1         | 4           | 32 bytes    | [Bendy Butt]      | `bendybutt-v1`  |
 | 1         | 5           | 32 bytes    | [Buttwoo]         | `buttwoo-v1`    |
+| 1         | 6           | 32 bytes    | [Index feed]      | `indexed-v1`    |
 
 #### Example
 
@@ -212,3 +214,4 @@ and they are never used for signing of messages.
 [UTF8]: https://datatracker.ietf.org/doc/html/rfc3629
 [Fusion Identity]: https://github.com/ssb-ngi-pointer/fusion-identity-spec/
 [Bencode]: https://en.wikipedia.org/wiki/Bencode
+[Index feed]: https://github.com/ssbc/ssb-secure-partial-replication-spec#version-1
