@@ -194,6 +194,7 @@ and they are never used for signing of messages.
 | Type code | Format code | Data length | Specification         | In `bfe.json` |
 |:---------:|:-----------:|-------------|-----------------------|---------------|
 | 7         | 0           | 32          | [Private Group PO box] | `po-box`     |
+| 7         | 1           | 32          | [Private Group] | `group`     |
 
 
 [TFK]: https://github.com/ssbc/envelope-spec/blob/master/encoding/tfk.md
